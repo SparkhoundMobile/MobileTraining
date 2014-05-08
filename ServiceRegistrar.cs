@@ -1,9 +1,11 @@
-using Video.Core.Helpers;
-using Video.Core.Interfaces;
-using Video.Core.Services;
-using Video.Core.ViewModels;
+using System;
+using System.IO;
+using Mymdb.Core.Helpers;
+using Mymdb.Core.Interfaces;
+using Mymdb.Core.Services;
+using Mymdb.Core.ViewModels;
 
-namespace Video.Core
+namespace Mymdb.Core
 {
     public static class ServiceRegistrar
     {

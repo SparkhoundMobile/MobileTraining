@@ -55,6 +55,8 @@ namespace Mymdb.WP
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+            //Service Container Setup
+            Mymdb.Core.ServiceRegistrar.Startup();
         }
 
         // Code to execute when the application is launching (eg, from Start)

@@ -1,0 +1,106 @@
+﻿<ViewModels:MoviesViewModel xmlns:ViewModels="clr-namespace:Mymdb.Core.ViewModels;assembly=Mymdb.Core" xmlns:Models="clr-namespace:Mymdb.Core.Models;assembly=Mymdb.Core" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" CanLoadMore="False" IsBusy="True" LoadedAlert="False" NeedsUpdate="True">
+    <ViewModels:MoviesViewModel.MoviesList>
+        <Models:Movie ImdbId="Erat senectus eros adipiscing parturient" IsFavorite="True" Id="89" ImagePath="Venenatis augue mollis nisi" ImageUrl="Magnis nibh mattis mauris" Runtime="54" ReleaseDate="04/23/2014 21:27:46" Title="Sit tristique ultricies">
+            <Models:Movie.Image>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+            </Models:Movie.Image>
+        </Models:Movie>
+        <Models:Movie ImdbId="Vel montes" IsFavorite="False" Id="29" ImagePath="Nisl ornare nam vestibulum feugiat" ImageUrl="Nostra euismod" Runtime="19" ReleaseDate="04/23/2014 21:27:46" Title="Sociosqu suscipit">
+            <Models:Movie.Image>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+            </Models:Movie.Image>
+        </Models:Movie>
+        <Models:Movie ImdbId="Torquent gravida" IsFavorite="True" Id="45" ImagePath="Primis felis rutrum nunc" ImageUrl="Platea fames volutpat vulputate" Runtime="35" ReleaseDate="04/23/2014 21:27:46" Title="Vestibulum ultrices dolor vehicula">
+            <Models:Movie.Image>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+            </Models:Movie.Image>
+        </Models:Movie>
+        <Models:Movie ImdbId="Curabitur sapien" IsFavorite="False" Id="46" ImagePath="Sociis laoreet adipiscing natoque" ImageUrl="Justo lacinia" Runtime="39" ReleaseDate="04/23/2014 21:27:46" Title="Semper iaculis ipsum sed maecenas">
+            <Models:Movie.Image>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+            </Models:Movie.Image>
+        </Models:Movie>
+        <Models:Movie ImdbId="Taciti praesent tellus" IsFavorite="True" Id="35" ImagePath="Dis phasellus lacus est consequat" ImageUrl="Odio orci posuere potenti" Runtime="67" ReleaseDate="04/23/2014 21:27:46" Title="Accumsan parturient vestibulum tempor">
+            <Models:Movie.Image>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+            </Models:Movie.Image>
+        </Models:Movie>
+        <Models:Movie ImdbId="Tempus pretium pede lorem tortor" IsFavorite="False" Id="28" ImagePath="Magna parturient turpis quam massa" ImageUrl="Vestibulum adipiscing" Runtime="58" ReleaseDate="04/23/2014 21:27:46" Title="Bibendum hac dictumst convallis dignissim">
+            <Models:Movie.Image>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+            </Models:Movie.Image>
+        </Models:Movie>
+        <Models:Movie ImdbId="Leo vestibulum rhoncus quis" IsFavorite="True" Id="57" ImagePath="Elementum vestibulum aliquam" ImageUrl="Nec non viverra" Runtime="32" ReleaseDate="04/23/2014 21:27:46" Title="Mus sodales metus">
+            <Models:Movie.Image>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+            </Models:Movie.Image>
+        </Models:Movie>
+        <Models:Movie ImdbId="Integer eleifend" IsFavorite="False" Id="16" ImagePath="Per facilisis habitant" ImageUrl="Adipiscing varius faucibus" Runtime="80" ReleaseDate="04/23/2014 21:27:46" Title="Facilisi quisque urna">
+            <Models:Movie.Image>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+            </Models:Movie.Image>
+        </Models:Movie>
+        <Models:Movie ImdbId="Fermentum parturient cras sed aenean" IsFavorite="True" Id="32" ImagePath="Interdum nullam vestibulum hendrerit duis" ImageUrl="Neque habitasse inceptos netus mauris" Runtime="30" ReleaseDate="04/23/2014 21:27:46" Title="Fringilla morbi sem">
+            <Models:Movie.Image>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+            </Models:Movie.Image>
+        </Models:Movie>
+        <Models:Movie ImdbId="Nulla sit nunc" IsFavorite="False" Id="23" ImagePath="Imperdiet vivamus malesuada" ImageUrl="Purus risus velit himenaeos" Runtime="13" ReleaseDate="04/23/2014 21:27:46" Title="Lobortis porta">
+            <Models:Movie.Image>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+                <System:Byte/>
+            </Models:Movie.Image>
+        </Models:Movie>
+    </ViewModels:MoviesViewModel.MoviesList>
+    <ViewModels:MoviesViewModel.Movies>
+        <ViewModels:MovieViewModel CanLoadMore="True" ImdbId="Aliquam sed praesent vestibulum" IsFavorite="True" Id="17" ImagePath="Dis integer adipiscing accumsan quisque" IsBusy="False" Runtime="45" ReleaseDate="04/23/2014 21:27:46" Title="Aenean maecenas nam class"/>
+        <ViewModels:MovieViewModel CanLoadMore="False" ImdbId="Vestibulum curabitur duis" IsFavorite="False" Id="28" ImagePath="Vivamus dictumst eleifend vestibulum" IsBusy="True" Runtime="34" ReleaseDate="04/23/2014 21:27:46" Title="Bibendum parturient cras"/>
+        <ViewModels:MovieViewModel CanLoadMore="True" ImdbId="Curae facilisi faucibus phasellus aptent" IsFavorite="True" Id="13" ImagePath="Nunc adipiscing auctor" IsBusy="False" Runtime="68" ReleaseDate="04/23/2014 21:27:46" Title="Mauris est nullam"/>
+        <ViewModels:MovieViewModel CanLoadMore="False" ImdbId="Habitant inceptos etiam" IsFavorite="False" Id="86" ImagePath="Parturient leo" IsBusy="True" Runtime="44" ReleaseDate="04/23/2014 21:27:46" Title="Amet ante hac donec consequat"/>
+        <ViewModels:MovieViewModel CanLoadMore="True" ImdbId="Dignissim elementum adipiscing parturient interdum" IsFavorite="True" Id="34" ImagePath="Aliquet blandit lobortis" IsBusy="False" Runtime="56" ReleaseDate="04/23/2014 21:27:46" Title="Convallis aliquam vestibulum vestibulum"/>
+        <ViewModels:MovieViewModel CanLoadMore="False" ImdbId="Fermentum mus fusce lorem eget" IsFavorite="False" Id="62" ImagePath="Fringilla habitasse elit" IsBusy="True" Runtime="31" ReleaseDate="04/23/2014 21:27:46" Title="Facilisis commodo arcu diam"/>
+        <ViewModels:MovieViewModel CanLoadMore="True" ImdbId="Congue vestibulum cursus pharetra himenaeos" IsFavorite="True" Id="15" ImagePath="Cubilia dictum lectus morbi" IsBusy="False" Runtime="33" ReleaseDate="04/23/2014 21:27:46" Title="Conubia hendrerit nec nascetur non"/>
+        <ViewModels:MovieViewModel CanLoadMore="False" ImdbId="Malesuada libero dapibus" IsFavorite="False" Id="70" ImagePath="Nulla adipiscing ligula proin" IsBusy="True" Runtime="12" ReleaseDate="04/23/2014 21:27:46" Title="Imperdiet vestibulum"/>
+        <ViewModels:MovieViewModel CanLoadMore="True" ImdbId="Parturient placerat" IsFavorite="True" Id="61" ImagePath="Vestibulum pulvinar" IsBusy="False" Runtime="83" ReleaseDate="04/23/2014 21:27:46" Title="Litora per egestas"/>
+        <ViewModels:MovieViewModel CanLoadMore="False" ImdbId="Porttitor tincidunt luctus sem sagittis" IsFavorite="False" Id="76" ImagePath="Enim vestibulum" IsBusy="True" Runtime="43" ReleaseDate="04/23/2014 21:27:46" Title="Penatibus sed"/>
+    </ViewModels:MoviesViewModel.Movies>
+</ViewModels:MoviesViewModel>

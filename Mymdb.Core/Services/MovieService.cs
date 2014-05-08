@@ -8,7 +8,7 @@ namespace Mymdb.Core.Services
 {
     public class MovieService : Interfaces.IMovieService
     {
-        private const string apiKey = "<Enter your api key here>";
+        private const string apiKey = "300f55ca407beb4e9dd9960df16310a1";
         private const string basePath = "https://api.themoviedb.org/3/";
 
         public string CreateImageUrl(string imageName)

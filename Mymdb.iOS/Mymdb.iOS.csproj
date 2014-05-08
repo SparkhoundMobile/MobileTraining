@@ -74,9 +74,19 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\ServiceRegistrar.cs">
+      <Link>Helpers\ServiceRegistrar.cs</Link>
+    </Compile>
+    <Compile Include="Helpers\UIHelpers.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\MoviesViewController.cs" />
+    <Compile Include="Views\MovieViewController.cs" />
+    <Compile Include="Views\MovieViewController.designer.cs">
+      <DependentUpon>MovieViewController.cs</DependentUpon>
+    </Compile>
     <None Include="Info.plist" />
+    <Compile Include="PlatformSpecific\LinkerPleaseInclude.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -100,6 +110,7 @@
     <Reference Include="BTProgressHUD">
       <HintPath>..\Components\btprogresshud-1.9\lib\ios\BTProgressHUD.dll</HintPath>
     </Reference>
+    <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="SQLite.Net">
       <HintPath>..\packages\SQLite.Net-PCL.2.2.0\lib\portable-net4+sl4+wp7+win8+monotouch+MonoAndroid\SQLite.Net.dll</HintPath>
     </Reference>
@@ -114,5 +125,13 @@
       <HintPath>..\Components\xamarin.mobile-0.7.1\lib\ios\Xamarin.Mobile.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Default%402x.png" />
+    <Content Include="Resources\Default-568h%402x.png" />
+    <Content Include="Resources\Icon-60%402x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <InterfaceDefinition Include="Views\MovieViewController.xib" />
+  </ItemGroup>
 </Project>

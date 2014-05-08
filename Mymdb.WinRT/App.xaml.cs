@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Mymdb.WinRT.Views;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -41,6 +42,7 @@ namespace Mymdb.WinRT
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            Mymdb.Core.ServiceRegistrar.Startup();
 
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -76,7 +78,7 @@ namespace Mymdb.WinRT
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                rootFrame.Navigate(typeof(Movies), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();

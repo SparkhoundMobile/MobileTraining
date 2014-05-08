@@ -4,6 +4,7 @@ using System.Linq;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using Mymdb.iOS.Views;
 
 namespace Mymdb.iOS
 {
@@ -15,6 +16,7 @@ namespace Mymdb.iOS
     {
         // class-level declarations
         UIWindow window;
+        private UINavigationController navigationController;
 
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
@@ -27,9 +29,10 @@ namespace Mymdb.iOS
         {
             // create a new window instance based on the screen size
             window = new UIWindow(UIScreen.MainScreen.Bounds);
+            Mymdb.Core.ServiceRegistrar.Startup();
 
-            // If you have defined a view, add it here:
-            // window.RootViewController  = navigationController;
+            navigationController = new UINavigationController(new MoviesViewController());
+            window.RootViewController = navigationController;
 
             // make the window visible
             window.MakeKeyAndVisible();
