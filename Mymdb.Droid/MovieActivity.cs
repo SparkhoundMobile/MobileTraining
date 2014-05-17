@@ -75,8 +75,30 @@ namespace Mymdb.Droid
             var picker = new Xamarin.Media.MediaPicker(this);
 
             btnCamera = FindViewById<Button>(Resource.Id.btnCamera);
+            btnCamera.Visibility = !picker.IsCameraAvailable ? ViewStates.Invisible : ViewStates.Visible;
+            btnCamera.Click += async (sender, e) =>
+            {
+                try
+                {
+                    MediaFile file = await picker.TakePhotoAsync(new StoreCameraMediaOptions());
+                    processImage(file);
+                }
+                catch
+                { }
+            };
 
             btnPhoto = FindViewById<Button>(Resource.Id.btnPhoto);
+            btnPhoto.Visibility = !picker.PhotosSupported ? ViewStates.Invisible : ViewStates.Visible;
+            btnPhoto.Click += async (sender, e) =>
+            {
+                try
+                {
+                    MediaFile file = await picker.PickPhotoAsync();
+                    processImage(file);
+                }
+                catch
+                { }
+            };
 
             FindViewById<TextView>(Resource.Id.textTitle).Text = viewModel.Title;
             FindViewById<TextView>(Resource.Id.textRuntime).Text = viewModel.Runtime.ToString();

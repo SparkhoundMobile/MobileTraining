@@ -58,6 +58,36 @@ namespace Mymdb.WP.Views
             NavigationService.GoBack();
         }
 
+        private async void CameraButton_Click(object sender, EventArgs e)
+        {
+            var picker = new MediaPicker();
+
+            try
+            {
+                MediaFile file = await picker.TakePhotoAsync(new StoreCameraMediaOptions());
+                processImage(file);
+            }
+            catch
+            {
+
+            }
+        }
+
+        private async void AlbumButton_Click(object sender, EventArgs e)
+        {
+            var picker = new MediaPicker();
+
+            try
+            {
+                MediaFile file = await picker.PickPhotoAsync();
+                processImage(file);
+            }
+            catch
+            {
+
+            }
+        }
+
         private async void processImage(MediaFile file)
         {
             if (file != null)

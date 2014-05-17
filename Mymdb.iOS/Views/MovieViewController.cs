@@ -59,6 +59,30 @@ namespace Mymdb.iOS
 
             var picker = new Xamarin.Media.MediaPicker();
 
+            btnCamera.Hidden = !picker.IsCameraAvailable;
+            btnCamera.TouchUpInside += async (sender, e) =>
+            {
+                try
+                {
+                    MediaFile file = await picker.TakePhotoAsync(new StoreCameraMediaOptions());
+                    processImage(file);
+                }
+                catch
+                { }
+            };
+
+            btnPhoto.Hidden = !picker.PhotosSupported;
+            btnPhoto.TouchUpInside += async (sender, e) =>
+            {
+                try
+                {
+                    MediaFile file = await picker.PickPhotoAsync();
+                    processImage(file);
+                }
+                catch
+                { }
+            };
+
             btnImdb.TouchUpInside += (sender, e) =>
             {
                 var webview = new UIWebView(new System.Drawing.RectangleF(0, 0, 640, 960));

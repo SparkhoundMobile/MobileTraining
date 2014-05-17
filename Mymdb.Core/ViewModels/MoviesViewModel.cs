@@ -49,7 +49,6 @@ namespace Mymdb.Core.ViewModels
         {
             get { return loadMoviesCommand ?? (loadMoviesCommand = new RelayCommand<bool>(async (loadImages) => await ExecuteLoadMoviesCommand(loadImages))); }
         }
-
         public async Task ExecuteLoadMoviesCommand(bool loadImages = false)
         {
             if (IsBusy)
@@ -81,7 +80,7 @@ namespace Mymdb.Core.ViewModels
             }
             catch (Exception exception)
             {
-                Debug.WriteLine("Unable to query and gather expenses");
+                Debug.WriteLine("Unable to load movies");
             }
             finally
             {
@@ -121,7 +120,7 @@ namespace Mymdb.Core.ViewModels
             }
             catch (Exception exception)
             {
-                Debug.WriteLine("Unable to query and gather expenses");
+                Debug.WriteLine("Unable to load more movies");
             }
             finally
             {
@@ -134,7 +133,6 @@ namespace Mymdb.Core.ViewModels
         {
             get { return getImageCommand ?? (getImageCommand = new RelayCommand<string>((item) => ExecuteGetImageCommand(item))); }
         }
-
         public string ExecuteGetImageCommand(string path)
         {
             if (IsBusy)
@@ -147,7 +145,7 @@ namespace Mymdb.Core.ViewModels
             }
             catch (Exception)
             {
-                Debug.WriteLine("Unable to delete movie");
+                Debug.WriteLine("Unable to create image url");
             }
             finally
             {
@@ -161,7 +159,6 @@ namespace Mymdb.Core.ViewModels
         {
             get { return downloadImageCommand ?? (downloadImageCommand = new RelayCommand<string>((item) => ExecuteDownloadImageCommand(item))); }
         }
-
         public Task<byte[]> ExecuteDownloadImageCommand(string path)
         {
             if (IsBusy)
@@ -175,7 +172,7 @@ namespace Mymdb.Core.ViewModels
             }
             catch (Exception)
             {
-                Debug.WriteLine("Unable to delete movie");
+                Debug.WriteLine("Unable to download image");
             }
             finally
             {
