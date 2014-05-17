@@ -7,6 +7,7 @@ using Mymdb.Core.Helpers;
 using Mymdb.Core.Models;
 using SQLite.Net;
 using SQLite.Net.Platform.Win32;
+using System.Threading.Tasks;
 
 namespace Mymdb.Test
 {
@@ -36,13 +37,13 @@ namespace Mymdb.Test
         }
 
         [TestMethod]
-        public void SaveAndDeleteMovie()
+        public async Task SaveAndDeleteMovie()
         {
             var storageService = ServiceContainer.Resolve<IStorageService>();
 
-            storageService.SaveMovie(new Movie { Id = MOVIE_ID });
-            var result = storageService.GetMovie(MOVIE_ID).Result;
-            var count = storageService.DeleteMovie(MOVIE_ID).Result;
+            await storageService.SaveMovie(new Movie { Id = MOVIE_ID });
+            var result = await storageService.GetMovie(MOVIE_ID);
+            var count = await storageService.DeleteMovie(MOVIE_ID);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(MOVIE_ID == result.Id);

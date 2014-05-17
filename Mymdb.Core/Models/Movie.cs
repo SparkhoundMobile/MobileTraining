@@ -1,17 +1,18 @@
 ﻿using System;
 using Newtonsoft.Json;
+using SQLite.Net.Attributes;
 
 namespace Mymdb.Core.Models
 {
     public class Movie : BusinessLayer.BusinessEntityBase
     {
-        [JsonProperty(PropertyName = "imdb_id")]
+        [JsonProperty(PropertyName = "imdb_id"), Column("ImdbId"), MaxLength(20)]
         public string ImdbId { get; set; }
 
-        [JsonProperty(PropertyName = "title")]
+        [JsonProperty(PropertyName = "title"), MaxLength(20)]
         public string Title { get; set; }
 
-        [JsonProperty(PropertyName = "poster_path")]
+        [JsonProperty(PropertyName = "poster_path"), MaxLength(100)]
         public string ImageUrl { get; set; }
 
         [JsonProperty(PropertyName = "runtime")]
@@ -24,6 +25,7 @@ namespace Mymdb.Core.Models
 
         public byte[] Image { get; set; }
 
+        [MaxLength(500)]
         public string ImagePath { get; set; }
     }
 }
