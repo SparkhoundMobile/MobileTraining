@@ -44,6 +44,19 @@ namespace Mymdb.iOS
                 BTProgressHUD.Dismiss();
             }
 
+            btnDelete.TouchUpInside += async (sender, e) =>
+            {
+                await viewModel.ExecuteDeleteMovieCommand(viewModel.Id);
+                NavigationController.PopToRootViewController(true);
+            };
+
+            btnSave.TouchUpInside += async (sender, e) =>
+            {
+                viewModel.IsFavorite = swtFavorite.On;
+                await viewModel.ExecuteSaveMovieCommand();
+                NavigationController.PopToRootViewController(true);
+            };
+
             var picker = new Xamarin.Media.MediaPicker();
 
             btnImdb.TouchUpInside += (sender, e) =>

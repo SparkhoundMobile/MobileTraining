@@ -77,6 +77,9 @@
     <Compile Include="..\ServiceRegistrar.cs">
       <Link>Helpers\ServiceRegistrar.cs</Link>
     </Compile>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <Compile Include="Helpers\UIHelpers.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

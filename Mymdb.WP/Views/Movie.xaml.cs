@@ -46,6 +46,43 @@ namespace Mymdb.WP.Views
             await LoadImages();
         }
 
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            ViewModel.SaveMovieCommand.Execute(null);
+            NavigationService.GoBack();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            ViewModel.DeleteMovieCommand.Execute(ViewModel.Id);
+            NavigationService.GoBack();
+        }
+
+        private async void processImage(MediaFile file)
+        {
+            if (file != null)
+            {
+                ViewModel.Image = file.GetStream();
+                ViewModel.ImagePath = file.Path;
+
+
+                await WriteToFile(ViewModel.Image);
+            }
+        }
+
+        private async Task WriteToFile(Stream imageStream)
+        {
+            StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+            var dataFolder = await local.CreateFolderAsync("MovieImages", CreationCollisionOption.OpenIfExists);
+
+            var file = await dataFolder.CreateFileAsync(ViewModel.ImagePath, CreationCollisionOption.ReplaceExisting);
+
+            using (var current = await file.OpenStreamForWriteAsync())
+            {
+                await imageStream.CopyToAsync(current);
+            }
+        }
+
         private async Task LoadImages()
         {
             StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;

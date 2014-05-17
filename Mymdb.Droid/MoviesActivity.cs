@@ -15,7 +15,7 @@ using Mymdb.Core.Models;
 
 namespace Mymdb.Droid
 {
-    [Activity(Label = "Video", MainLauncher = true)]
+    [Activity(Label = "Mymdb", MainLauncher = true)]
     public class MoviesActivity : Activity
     {
         private MoviesViewModel viewModel;

@@ -69,7 +69,7 @@ namespace Mymdb.Core.ViewModels
                     vm = new MovieViewModel();
                     vm.Init(movie);
 
-                    if (loadImages)
+                    if (loadImages && !string.IsNullOrEmpty(movie.ImageUrl))
                     {
                         var url = movieService.CreateImageUrl(movie.ImageUrl);
                         movie.Image = await movieService.DownloadImage(url);

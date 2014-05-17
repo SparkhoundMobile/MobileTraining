@@ -53,8 +53,11 @@ namespace Mymdb.Droid
                 view = context.LayoutInflater.Inflate(Android.Resource.Layout.ActivityListItem, null);
             view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = movie.Title;
 
-            var bmp = Android.Graphics.BitmapFactory.DecodeByteArray(movie.Image, 0, movie.Image.Length);
-            view.FindViewById<ImageView>(Android.Resource.Id.Icon).SetImageBitmap(bmp);
+            if (movie.Image != null)
+            {
+                var bmp = Android.Graphics.BitmapFactory.DecodeByteArray(movie.Image, 0, movie.Image.Length);
+                view.FindViewById<ImageView>(Android.Resource.Id.Icon).SetImageBitmap(bmp);
+            }
 
             return view;
         }

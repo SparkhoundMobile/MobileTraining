@@ -48,9 +48,34 @@ namespace Mymdb.Droid
             imgImage = FindViewById<ImageView>(Resource.Id.imageView1);
 
             imdbView = FindViewById<TextView>(Resource.Id.textIMDB);
+            imdbView.Text = viewModel.ImdbId;
+            imdbView.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(WebviewActivity));
+                intent.PutExtra("imdbId", viewModel.ImdbId);
+                StartActivity(intent);
+            };
+
             btnDelete = FindViewById<Button>(Resource.Id.btnDelete);
+            btnDelete.Click += async (sender, e) =>
+            {
+                await viewModel.ExecuteDeleteMovieCommand(viewModel.Id);
+                //Navigate back?
+            };
+
             btnSave = FindViewById<Button>(Resource.Id.btnSave);
+            btnSave.Click += async (sender, e) =>
+            {
+                tglFavorite = FindViewById<ToggleButton>(Resource.Id.toggleFavorite);
+                viewModel.IsFavorite = tglFavorite.Checked;
+                await viewModel.ExecuteSaveMovieCommand();
+                //Navigate back?
+            };
+
+            var picker = new Xamarin.Media.MediaPicker(this);
+
             btnCamera = FindViewById<Button>(Resource.Id.btnCamera);
+
             btnPhoto = FindViewById<Button>(Resource.Id.btnPhoto);
 
             FindViewById<TextView>(Resource.Id.textTitle).Text = viewModel.Title;

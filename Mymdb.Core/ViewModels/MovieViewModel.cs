@@ -12,11 +12,13 @@ namespace Mymdb.Core.ViewModels
     public class MovieViewModel : ViewModelBase
     {
         private IMovieService movieService;
+        private IStorageService storageService;
         private Movie currentMovie;
 
         public MovieViewModel()
         {
             movieService = ServiceContainer.Resolve<IMovieService>();
+            storageService = ServiceContainer.Resolve<IStorageService>();
         }
 
         public MovieViewModel(IMovieService movieService)
@@ -29,7 +31,7 @@ namespace Mymdb.Core.ViewModels
         {
             if (id >= 0)
             {
-                currentMovie = await movieService.GetMovie(id);
+                currentMovie = await storageService.GetMovie(id) ?? await movieService.GetMovie(id);
             }
             else
             {
@@ -125,6 +127,66 @@ namespace Mymdb.Core.ViewModels
         {
             get { return image; }
             set { image = value; OnPropertyChanged("Image"); OnPropertyChanged("ImagePath"); }
+        }
+
+        private RelayCommand saveMovieCommand;
+        public ICommand SaveMovieCommand
+        {
+            get { return saveMovieCommand ?? (saveMovieCommand = new RelayCommand(async () => await ExecuteSaveMovieCommand())); }
+        }
+        public async Task ExecuteSaveMovieCommand()
+        {
+            if (IsBusy)
+                return;
+            if (currentMovie == null)
+                currentMovie = new Movie();
+
+            currentMovie.Title = Title;
+            currentMovie.ImdbId = ImdbId;
+            currentMovie.Runtime = Runtime;
+            currentMovie.IsFavorite = IsFavorite;
+            currentMovie.ImagePath = ImagePath;
+            if (Image != null)
+                currentMovie.Image = Image.ConvertToByte();
+
+            try
+            {
+                await storageService.SaveMovie(currentMovie);
+                ServiceContainer.Resolve<MoviesViewModel>().NeedsUpdate = true;
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Unable to save favorite.");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private RelayCommand<int> deleteMovieCommand;
+        public ICommand DeleteMovieCommand
+        {
+            get { return deleteMovieCommand ?? (deleteMovieCommand = new RelayCommand<int>(async (id) => await ExecuteDeleteMovieCommand(id))); }
+        }
+        public async Task ExecuteDeleteMovieCommand(int id)
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+            try
+            {
+                await storageService.DeleteMovie(id);
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Unable to delete movie");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }
